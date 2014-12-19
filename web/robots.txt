@@ -1,0 +1,3 @@
+# There is nothing for searche engines to index in the API.
+User-agent: *
+Disallow: /

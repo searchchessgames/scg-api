@@ -1,0 +1,7 @@
+search_chess_games_game:
+    resource: "@SearchChessGamesGameBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: @AppBundle/Controller/
+    type:     annotation
