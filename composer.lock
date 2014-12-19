@@ -4,8 +4,38 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ed0d923358021c2b1952e3ce43c12681",
+    "hash": "3c4f2565f4c81e20b8a39714324c65e3",
     "packages": [
+        {
+            "name": "amyboyd/pgn-parser",
+            "version": "0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/amyboyd/pgn-parser.git",
+                "reference": "bd718d2e2e51f39f6b826c772e47786ae70ae764"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/amyboyd/pgn-parser/zipball/bd718d2e2e51f39f6b826c772e47786ae70ae764",
+                "reference": "bd718d2e2e51f39f6b826c772e47786ae70ae764",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "AmyBoyd\\PgnParser\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Amy Boyd",
+                    "email": "amy@amyboyd.co.uk"
+                }
+            ],
+            "description": "A PHP parser for the chess game notation format, PGN. There are no external dependencies. It's simple to use, namespaced and testable.",
+            "time": "2014-12-19 21:17:47"
+        },
         {
             "name": "doctrine/annotations",
             "version": "v1.2.2",
