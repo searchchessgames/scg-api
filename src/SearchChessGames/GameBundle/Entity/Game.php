@@ -9,7 +9,7 @@ use AmyBoyd\PgnParser\Game as BaseGame;
  * @ORM\Entity(repositoryClass="SearchChessGames\GameBundle\Repository\GameRepository")
  * @ORM\Table(name="game")
  */
-class Game extends BaseGame
+class Game extends BaseGame implements \JsonSerializable
 {
     /**
      * @ORM\Id
@@ -195,5 +195,10 @@ class Game extends BaseGame
     public function setSlug($slug)
     {
         $this->slug = $slug;
+    }
+
+    public function jsonSerialize()
+    {
+        return json_decode($this->toJSON());
     }
 }
