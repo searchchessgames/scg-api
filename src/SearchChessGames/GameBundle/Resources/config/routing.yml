@@ -1,0 +1,3 @@
+search_chess_games_game_search:
+    path:     /search
+    defaults: { _controller: SearchChessGamesGameBundle:Game:search }
