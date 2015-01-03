@@ -31,4 +31,25 @@ class GameController extends Controller
             'count' => $count
         ]);
     }
+
+    public function gameAction()
+    {
+        $slug = $this->get('request')->get('slug');
+        if (!$slug) {
+            return new JsonResponse(null, 404);
+        }
+
+        $repo = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('SearchChessGamesGameBundle:Game');
+        $game = $repo->findOneBySlug($slug);
+
+        if (!$game) {
+            return new JsonResponse(null, 404);
+        }
+
+        return new JsonResponse([
+            'game' => $game,
+        ]);
+    }
 }

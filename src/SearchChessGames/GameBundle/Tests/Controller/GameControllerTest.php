@@ -58,4 +58,30 @@ class GameControllerTest extends AbstractFunctionalControllerTest
         $this->assertEquals(0, $json['count']);
         $this->assertCount(0, $json['games']);
     }
+
+    public function testGameAction_exists()
+    {
+        $this->request->request->set('slug', 'Robson-Finegold-RobsonFinegold-Classical-Match-2011-3');
+
+        $controller = new GameController();
+        $controller->setContainer($this->container);
+        $response = $controller->gameAction();
+        $json = json_decode($response->getContent(), true);
+
+        $this->assertEquals(200, $response->getStatusCode());
+        $this->assertEquals('Robson, Ray', $json['game']['white']);
+        $this->assertEquals('1-0', $json['game']['result']);
+    }
+
+    public function testGameAction_doesNotExist()
+    {
+        $this->request->request->set('slug', 'Z-Z-Z');
+
+        $controller = new GameController();
+        $controller->setContainer($this->container);
+        $response = $controller->gameAction();
+        $json = json_decode($response->getContent(), true);
+
+        $this->assertEquals(404, $response->getStatusCode());
+    }
 }

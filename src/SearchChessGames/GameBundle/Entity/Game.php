@@ -199,6 +199,9 @@ class Game extends BaseGame implements \JsonSerializable
 
     public function jsonSerialize()
     {
-        return json_decode($this->toJSON());
+        $result = json_decode($this->toJSON(), true);
+        $result['slug'] = $this->getSlug();
+
+        return $result;
     }
 }
