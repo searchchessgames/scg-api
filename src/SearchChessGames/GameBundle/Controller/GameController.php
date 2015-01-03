@@ -9,17 +9,17 @@ class GameController extends Controller
 {
     public function searchAction()
     {
-        $query = $this->getRequest()->get('q');
+        $query = $this->get('request')->get('q');
         if (!$query) {
             return new JsonResponse([
                 'error' => 'Please enter a search query',
             ]);
         }
 
-        $page = (int) $this->getRequest()->get('p', 1);
+        $page = (int) $this->get('request')->get('p', 1);
 
         $repo = $this->getDoctrine()
-            ->getEntityManager()
+            ->getManager()
             ->getRepository('SearchChessGamesGameBundle:Game');
         $games = $repo->findBySearchQuery($query, $page);
         $count = $repo->countBySearchQuery($query);
